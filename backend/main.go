@@ -2,7 +2,8 @@ package main
 
 import (
 	"task-canvas/auth"
-	"task-canvas/graph"
+	"task-canvas/interface/graph"
+	"task-canvas/interface/graph/generated"
 	"time"
 
 	"github.com/99designs/gqlgen/graphql/handler"
@@ -15,7 +16,7 @@ import (
 
 // Note: 参考 https://github.com/99designs/gqlgen/blob/master/docs/content/recipes/gin.md
 func graphqlHandler() gin.HandlerFunc {
-	h := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
+	h := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
 
 	return func(ctx *gin.Context) {
 		h.ServeHTTP(ctx.Writer, ctx.Request)
