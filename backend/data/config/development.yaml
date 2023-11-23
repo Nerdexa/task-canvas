@@ -1,0 +1,5 @@
+auth0:
+  domain: $AUTH0_DOMAIN
+  audience: $AUTH0_AUDIENCE
+  management_client_id: $AUTH0_MANAGEMENT_CLIENT_ID
+  management_client_secret: $AUTH0_MANAGEMENT_CLIENT_SECRET
