@@ -12,7 +12,7 @@ import { useTodo } from '@/hooks/useTodo';
 
 const Top = () => {
   const [value, setValue] = useState<string>('');
-  const { todos, addTodo } = useTodo();
+  const { todos, addTodo, updateTodo } = useTodo();
 
   const handleChangeText: InputProps['onChange'] = (event) => {
     const inputText = event.target.value;
@@ -27,18 +27,7 @@ const Top = () => {
   };
 
   const handleChangeCheckbox = (id: string, event: React.ChangeEvent<HTMLInputElement>) => {
-    // const newChecked = event.target.checked;
-    // const newTodos = todos.map((todo) => {
-    //   if (todo.id === id) {
-    //     return {
-    //       id: todo.id,
-    //       completed: newChecked,
-    //       text: todo.text,
-    //     };
-    //   }
-    //   return todo;
-    // });
-    // setTodos(newTodos);
+    updateTodo(id, event.target.checked);
   };
 
   return (
