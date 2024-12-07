@@ -4,7 +4,7 @@ go 1.23.4
 
 require (
 	github.com/jackc/pgx/v5 v5.7.1
-	github.com/labstack/echo/v4 v4.12.0
+	github.com/labstack/echo/v4 v4.13.0
 )
 
 require github.com/agiledragon/gomonkey/v2 v2.12.0
