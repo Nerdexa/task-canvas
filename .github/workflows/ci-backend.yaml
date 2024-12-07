@@ -32,14 +32,18 @@ jobs:
         with:
           go-version-file: "backend/go.mod"
 
-      - name: Reviewdog
-        uses: reviewdog/action-staticcheck@v1
+      - name: Install dependencies
+        run: |
+          cd ./backend
+          go mod tidy
+          go mod download
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
         with:
-          github_token: ${{ secrets.github_token }}
-          workdir: "./backend/"
-          reporter: github-pr-review
-          filter_mode: nofilter
-          fail_on_error: true
+          version: v1.55.2
+          working-directory: backend
+          args: --timeout=5m
 
       - uses: Jerome1337/gofmt-action@v1.0.5
         with:
