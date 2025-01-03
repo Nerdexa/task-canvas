@@ -31,7 +31,7 @@
     "@storybook/testing-library": "0.2.2",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.1.0",
-    "@types/node": "22.10.4",
+    "@types/node": "22.10.5",
     "@types/react": "18",
     "@types/react-dom": "18",
     "eslint": "9.17.0",
