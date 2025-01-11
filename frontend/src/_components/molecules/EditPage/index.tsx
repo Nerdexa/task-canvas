@@ -30,10 +30,17 @@ const EditPage: React.FC<EditPageProps> = ({
     setValue(inputText);
   };
 
+  const resetValue = () => {
+    setValue(initialValue);
+  };
+
   return (
     <Dialog
       open={open}
-      onClose={onClose}
+      onClose={() => {
+        onClose();
+        resetValue();
+      }}
     >
       <Box>
         <TextFiled

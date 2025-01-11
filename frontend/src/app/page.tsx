@@ -20,7 +20,7 @@ const Top = () => {
   const [value, setValue] = useState<string>('');
   const { todos, addTodo, updateTodo } = useTodo();
   const { signOut } = useSignOut();
-
+  console.log(todos);
   const handleChangeText: InputProps['onChange'] = (event) => {
     const inputText = event.target.value;
     if (inputText.length > 40) return;
@@ -129,12 +129,17 @@ const Top = () => {
             {todos.map((todo, i) => {
               return (
                 <TodoCard
+                  id={todo.id}
                   text={todo.content}
                   checked={todo.completed}
                   onChange={(event) => {
                     handleChangeCheckbox(todo.id, todo.content, event);
                   }}
                   key={i}
+                  onSave={async (id, value) => {
+                    updateTodo(id, value, todo.completed);
+                  }}
+                  onDelete={() => {}}
                 />
               );
             })}

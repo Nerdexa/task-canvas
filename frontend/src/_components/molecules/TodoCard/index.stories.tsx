@@ -28,9 +28,12 @@ export const Default: StoryFn<typeof TodoCard> = () => {
       }}
     >
       <TodoCard
+        id={'test-id'}
         text={'test'}
         checked={isChecked}
         onChange={handleChange}
+        onSave={async () => {}}
+        onDelete={() => {}}
       />
     </div>
   );

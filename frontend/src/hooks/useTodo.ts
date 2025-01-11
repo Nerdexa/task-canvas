@@ -16,19 +16,21 @@ export const useTodo = () => {
 
   const updateTodo = (id: Todo['id'], content: Todo['content'], completed: Todo['completed']) => {
     updateTodoUseCase(id, content, completed).then(() => {
-      const newTodos = todos.map((todo) => {
-        if (id === todo.id) {
-          const newTodo: Todo = {
-            id: todo.id,
-            content: todo.content,
-            completed: completed,
-          };
-          return newTodo;
-        }
-        return todo;
-      });
+      setTodos((currentTodos) => {
+        return currentTodos.map((todo) => {
+          if (id === todo.id) {
+            const newTodo: Todo = {
+              id: todo.id,
+              content: content,
+              completed: completed,
+            };
 
-      setTodos(newTodos);
+            return newTodo;
+          }
+
+          return todo;
+        });
+      });
     });
   };
 
